@@ -18,9 +18,6 @@ import {
   DirectionalLight,
 } from "three";
 
-const ambientLight = new AmbientLight(0xffffff, 0.2);
-const directionalLight = new DirectionalLight(0xffffff, 0.8);
-directionalLight.position.set(0, 0, 0.5);
 const geometry = new IcosahedronGeometry(1, 1);
 const material = new MeshStandardMaterial({
   color: 0xa5b4fc,
@@ -37,8 +34,6 @@ const Ball = ({ img }: { img: string }) => {
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.2} />
       <directionalLight position={[0, 0, 0.5]} />
-      {/* <primitive object={ambientLight} />
-      <primitive object={directionalLight} /> */}
       <mesh
         castShadow
         receiveShadow
@@ -59,19 +54,8 @@ const Ball = ({ img }: { img: string }) => {
 
 const BallCanvas = ({ url }: { url: string }) => {
   return (
-    <Canvas
-      frameloop="always"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}>
-      <Suspense fallback={<CanvasLoader />}>
-        <PresentationControls
-          config={{ mass: 2, tension: 500 }}
-          snap={{ mass: 4, tension: 1500 }}
-          polar={[-Math.PI / 3, Math.PI / 3]}
-          azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
-          <Ball img={url} />
-        </PresentationControls>
-      </Suspense>
+    <Canvas frameloop="always" dpr={[1, 2]}>
+      <Ball img={url} />
     </Canvas>
   );
 };
