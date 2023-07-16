@@ -74,16 +74,16 @@ export default function Home() {
         <div className="absolute top-[120px] w-full">
           <div className="container relative">
             <div className="space-y-2">
-              <h1 className="text-6xl text-gray-100 font-extrabold leading-tight">
+              <h1 className="text-4xl md:text-6xl text-gray-100 font-extrabold leading-tight">
                 Hey, I'm <span className="text-lime-400">Soumya</span>
               </h1>
-              <p className="text-gray-100 text-xl font-mulish">
+              <p className="text-gray-100 text-sm md:text-xl font-mulish">
                 I develop 3D visuals, user interfaces and web application.
               </p>
             </div>
           </div>
         </div>
-        <div className="flex-1 relative top-0 bottom-0 -z-0 w-full">
+        <div className="flex-1 relative top-0 bottom-0 -z-10 w-full">
           <div className="absolute top-0 right-0 left-0 bottom-0">
             <HeroSectionModel />
           </div>

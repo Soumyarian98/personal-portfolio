@@ -13,7 +13,7 @@ import { experiences } from "@/constants/data";
 
 const Experience = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-hidden">
       <div className="container py-[60px]">
         <motion.div
           variants={textVariant(0.5)}
