@@ -1,20 +1,27 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { navLinks } from "@/constants/data";
 import { motion } from "framer-motion";
-
-import Head from "next/head";
-import HeroSectionModel from "@/components/HeroSectionModel";
-
-import AboutMe from "@/components/AboutMe";
-import Link from "next/link";
-import Experience from "@/components/Experience";
-
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+import Link from "next/link";
+
+import HeroSectionModel from "@/components/HeroSectionModel";
+import Experience from "@/components/Experience";
+import { navLinks } from "@/constants/data";
+
+const AboutMe = dynamic(() => import("@/components/AboutMe"), {
+  loading: () => <p>Loading...</p>,
+});
 
 const Technologies = dynamic(() => import("@/components/Technologies"), {
+  loading: () => <p>Loading...</p>,
+});
+
+const Projects = dynamic(() => import("@/components/Projects"), {
+  loading: () => <p>Loading...</p>,
+});
+
+const Contact = dynamic(() => import("@/components/Contact"), {
   loading: () => <p>Loading...</p>,
 });
 
@@ -99,11 +106,9 @@ export default function Home() {
       </div>
       <AboutMe />
       <Experience />
-      <Technologies />
-
-      {/* 
-      <Projects />
-      <Contact /> */}
+      {/* <Technologies /> */}
+      {/* <Projects /> */}
+      {/* <Contact /> */}
     </div>
   );
 }
