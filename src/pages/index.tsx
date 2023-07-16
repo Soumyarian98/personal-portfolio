@@ -92,11 +92,11 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <AboutMe />
+      {/* <AboutMe />
       <Experience />
       <Technologies />
       <Projects />
-      <Contact />
+      <Contact /> */}
     </div>
   );
 }
