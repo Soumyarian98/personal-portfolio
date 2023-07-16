@@ -106,9 +106,9 @@ export default function Home() {
       </div>
       <AboutMe />
       <Experience />
+      <Projects />
+      <Contact />
       {/* <Technologies /> */}
-      {/* <Projects /> */}
-      {/* <Contact /> */}
     </div>
   );
 }
