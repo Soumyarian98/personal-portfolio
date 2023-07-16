@@ -54,8 +54,13 @@ const Ball = ({ img }: { img: string }) => {
 
 const BallCanvas = ({ url }: { url: string }) => {
   return (
-    <Canvas frameloop="always" dpr={[1, 2]}>
-      <Ball img={url} />
+    <Canvas
+      frameloop="always"
+      dpr={[1, 2]}
+      gl={{ preserveDrawingBuffer: true }}>
+      <Suspense fallback={<CanvasLoader />}>
+        <Ball img={url} />
+      </Suspense>
     </Canvas>
   );
 };
