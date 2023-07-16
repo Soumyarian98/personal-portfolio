@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { slideIn } from "@/utils/motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import CanvasLoader from "./CanvasLoader";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { BufferGeometry, Float32BufferAttribute } from "three";
 
 const Model = () => {
@@ -149,7 +148,6 @@ const Contact = () => {
                   />
                   <Model />
                 </Suspense>
-                <Preload all />
               </Canvas>
             </div>
           </div>
@@ -160,7 +158,6 @@ const Contact = () => {
           <Suspense fallback={<CanvasLoader />}>
             <Stars />
           </Suspense>
-          <Preload all />
         </Canvas>
       </div>
     </div>

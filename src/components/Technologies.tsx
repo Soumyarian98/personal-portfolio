@@ -7,7 +7,6 @@ import { Canvas } from "@react-three/fiber";
 import {
   Decal,
   Float,
-  Preload,
   PresentationControls,
   useTexture,
 } from "@react-three/drei";
@@ -56,7 +55,6 @@ const BallCanvas = ({ url }: { url: string }) => {
           <Ball img={url} />
         </PresentationControls>
       </Suspense>
-      <Preload all />
     </Canvas>
   );
 };
