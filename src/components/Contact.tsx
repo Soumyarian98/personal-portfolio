@@ -62,101 +62,97 @@ const Stars = () => {
 };
 
 const Contact = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
   return (
-    <div className="relative min-h-screen" ref={ref}>
-      {isInView && (
-        <div className="container z-20 relative py-20 bg-transparent">
-          <motion.div
-            variants={slideIn({
-              direction: "left",
-              type: "tween",
-              delay: 0.2,
-              duration: 1,
-            })}>
-            <div className="flex  flex-col-reverse lg:grid lg:grid-cols-2 gap-8">
-              <div className="bg-slate-900 bg-opacity-50 p-6 space-y-12 rounded-2xl">
-                <div className="space-y-1">
-                  <p className="text-indigo-200 text-sm">Get In Touch</p>
-                  <h2 className="text-4xl lg:text-6xl font-extrabold text-lime-300 uppercase">
-                    Contact
-                  </h2>
-                </div>
-                <form>
-                  <div className="space-y-6">
-                    <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block mb-2 text-sm font-medium text-indigo-200">
-                        Your name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        className="bg-slate-900 border border-slate-700 text-indigo-100 text-sm rounded block w-full p-2.5 focus:outline-none focus:border-lime-500"
-                        placeholder="John"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-indigo-200">
-                        Your Email
-                      </label>
-                      <input
-                        type="text"
-                        id="em"
-                        className="bg-slate-900 border border-slate-700 text-indigo-100 text-sm rounded block w-full p-2.5 focus:outline-none focus:border-lime-500"
-                        placeholder="John"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block mb-2 text-sm font-medium text-indigo-200">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        className="bg-slate-900 border border-slate-700 text-indigo-100 text-sm rounded block w-full p-2.5 focus:outline-none focus:border-lime-500"
-                        placeholder="What do you want to say?"
-                        rows={7}
-                        required
-                      />
-                    </div>
-                    <div className="flex justify-end ">
-                      <button
-                        type="button"
-                        className="text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded text-sm px-5 py-2.5 text-center mb-2">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </form>
+    <div className="relative min-h-screen">
+      <div className="container z-20 relative py-20 bg-transparent">
+        <motion.div
+          variants={slideIn({
+            direction: "left",
+            type: "tween",
+            delay: 0.2,
+            duration: 1,
+          })}>
+          <div className="flex  flex-col-reverse lg:grid lg:grid-cols-2 gap-8">
+            <div className="bg-slate-900 bg-opacity-50 p-6 space-y-12 rounded-2xl">
+              <div className="space-y-1">
+                <p className="text-indigo-200 text-sm">Get In Touch</p>
+                <h2 className="text-4xl lg:text-6xl font-extrabold text-lime-300 uppercase">
+                  Contact
+                </h2>
               </div>
-              <div className="relative h-[300px] lg:h-full">
-                <Canvas
-                  frameloop="demand"
-                  camera={{ fov: 45 }}
-                  gl={{ preserveDrawingBuffer: true }}>
-                  <Suspense fallback={<CanvasLoader />}>
-                    <OrbitControls
-                      enableZoom={false}
-                      autoRotate={true}
-                      maxPolarAngle={Math.PI / 2}
-                      minPolarAngle={Math.PI / 2}
+              <form>
+                <div className="space-y-6">
+                  <div>
+                    <label
+                      htmlFor="firstName"
+                      className="block mb-2 text-sm font-medium text-indigo-200">
+                      Your name
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      className="bg-slate-900 border border-slate-700 text-indigo-100 text-sm rounded block w-full p-2.5 focus:outline-none focus:border-lime-500"
+                      placeholder="John"
+                      required
                     />
-                    <Model />
-                  </Suspense>
-                </Canvas>
-              </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block mb-2 text-sm font-medium text-indigo-200">
+                      Your Email
+                    </label>
+                    <input
+                      type="text"
+                      id="em"
+                      className="bg-slate-900 border border-slate-700 text-indigo-100 text-sm rounded block w-full p-2.5 focus:outline-none focus:border-lime-500"
+                      placeholder="John"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block mb-2 text-sm font-medium text-indigo-200">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      className="bg-slate-900 border border-slate-700 text-indigo-100 text-sm rounded block w-full p-2.5 focus:outline-none focus:border-lime-500"
+                      placeholder="What do you want to say?"
+                      rows={7}
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-end ">
+                    <button
+                      type="button"
+                      className="text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded text-sm px-5 py-2.5 text-center mb-2">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-          </motion.div>
-        </div>
-      )}
+            <div className="relative h-[300px] lg:h-full">
+              <Canvas
+                frameloop="demand"
+                camera={{ fov: 45 }}
+                gl={{ preserveDrawingBuffer: true }}>
+                <Suspense fallback={<CanvasLoader />}>
+                  <OrbitControls
+                    enableZoom={false}
+                    autoRotate={true}
+                    maxPolarAngle={Math.PI / 2}
+                    minPolarAngle={Math.PI / 2}
+                  />
+                  <Model />
+                </Suspense>
+              </Canvas>
+            </div>
+          </div>
+        </motion.div>
+      </div>
       <div className="absolute top-0 left-0 inset-0">
         <Canvas shadows frameloop="always" camera={{ fov: 45 }}>
           <Suspense fallback={<CanvasLoader />}>
