@@ -9,9 +9,14 @@ import HeroSectionModel from "@/components/HeroSectionModel";
 import AboutMe from "@/components/AboutMe";
 import Link from "next/link";
 import Experience from "@/components/Experience";
-import Technologies from "@/components/Technologies";
+
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import dynamic from "next/dynamic";
+
+const Technologies = dynamic(() => import("@/components/Technologies"), {
+  loading: () => <p>Loading...</p>,
+});
 
 export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
@@ -65,7 +70,7 @@ export default function Home() {
               <h1 className="text-6xl text-gray-100 font-extrabold leading-tight">
                 Hey, I'm <span className="text-lime-400">Soumya</span>
               </h1>
-              <p className="text-gray-100 text-xl">
+              <p className="text-gray-100 text-xl font-mulish">
                 I develop 3D visuals, user interfaces and web application.
               </p>
             </div>
@@ -92,9 +97,11 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      {/* <AboutMe />
+      <AboutMe />
       <Experience />
       <Technologies />
+
+      {/* 
       <Projects />
       <Contact /> */}
     </div>

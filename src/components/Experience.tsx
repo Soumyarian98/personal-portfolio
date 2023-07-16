@@ -50,7 +50,7 @@ const Experience = () => {
                     {e.points.map((point, index) => (
                       <li
                         key={`experience-point-${index}`}
-                        className="text-indigo-200 text-sm pl-1 tracking-wider leading-relaxed">
+                        className="text-indigo-200 text-sm pl-1 tracking-wider leading-relaxed font-mulish">
                         {point}
                       </li>
                     ))}

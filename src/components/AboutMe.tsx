@@ -11,12 +11,12 @@ const AboutMe = () => {
           <div className="sm:col-span-2">
             <motion.div variants={textVariant(0.5)} className="space-y-2">
               <p className="text-indigo-100">Let's Get To Know Eachother</p>
-              <h2 className="text-4xl lg:text-6xl font-extrabold text-lime-400">
+              <h2 className="text-4xl lg:text-6xl uppercase font-extrabold text-lime-400">
                 I Me & Myself
               </h2>
             </motion.div>
             <div className="mt-8">
-              <p className="text-indigo-200 leading-relaxed font-medium ">
+              <p className="text-indigo-200 leading-relaxed font-medium font-mulish">
                 Hey there, you stumbled upon my website! I'm Soumya, a web
                 developer based in Bengaluru, India. I know, I know, web
                 developers aren't supposed to have a sense of humor, but trust
