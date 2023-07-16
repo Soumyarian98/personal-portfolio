@@ -1,6 +1,6 @@
 import SectionWrapper from "@/hoc/SectionWrapper";
-import React, { Suspense } from "react";
-import { motion } from "framer-motion";
+import React, { Suspense, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { textVariant } from "@/utils/motion";
 import { technologies } from "@/constants/data";
 import { Canvas } from "@react-three/fiber";
@@ -60,8 +60,10 @@ const BallCanvas = ({ url }: { url: string }) => {
 };
 
 const Technologies = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen" ref={ref}>
       <div className="container py-[60px] relative z-10">
         <motion.div
           variants={textVariant(0.5)}
@@ -71,17 +73,19 @@ const Technologies = () => {
             Technologies
           </h2>
         </motion.div>
-        <div className="flex gap-4 mt-8 flex-wrap justify-center items-center">
-          {technologies.map(t => {
-            return (
-              <div
-                key={t.name}
-                className="relative w-[100px] lg:w-[200px] h-[100px] lg:h-[200px]">
-                <BallCanvas url={t.icon} />
-              </div>
-            );
-          })}
-        </div>
+        {isInView && (
+          <div className="flex gap-4 mt-8 flex-wrap justify-center items-center">
+            {technologies.map(t => {
+              return (
+                <div
+                  key={t.name}
+                  className="relative w-[100px] lg:w-[200px] h-[100px] lg:h-[200px]">
+                  <BallCanvas url={t.icon} />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
