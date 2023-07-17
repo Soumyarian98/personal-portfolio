@@ -105,10 +105,10 @@ export default function Home() {
         </div>
       </div>
       <AboutMe />
-      <Experience />
       <Technologies />
+      <Experience />
       <Projects />
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 }
