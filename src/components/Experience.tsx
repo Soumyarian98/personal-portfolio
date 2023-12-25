@@ -1,5 +1,5 @@
 import SectionWrapper from "@/hoc/SectionWrapper";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   VerticalTimeline,
@@ -15,54 +15,43 @@ const Experience = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="container py-[60px]">
-        <motion.div
-          variants={textVariant(0.5)}
-          className="space-y-2 text-center">
+        <div className="space-y-2 text-center">
           <p className="text-indigo-200">What have i done so far</p>
-          <h2 className="text-4xl lg:text-6xl font-extrabold text-lime-400 uppercase">
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-lime-300 uppercase">
             Experience
           </h2>
-        </motion.div>
-        <div className="mt-8">
-          <VerticalTimeline>
-            {experiences.map(e => {
-              return (
-                <VerticalTimelineElement
-                  contentStyle={{
-                    background: `rgb(30 27 75)`,
-                    boxShadow: "0 3px 0 rgb(163 230 53)",
-                    borderRadius: "0px",
-                  }}
-                  iconClassName="bg-indigo-900"
-                  contentArrowStyle={{
-                    borderRight: `7px solid  rgb(30 27 75)`,
-                  }}
-                  date={e.date}
-                  dateClassName="text-indigo-100 font-bold"
-                  icon={<FiBell className="text-indigo-100" />}>
-                  <div className="space-y-1">
-                    <h3 className="text-lime-300 font-medium">{e.title}</h3>
-                    <h4 className=" text-indigo-100 text-sm">
-                      {e.company_name}
-                    </h4>
-                  </div>
-                  <ul className="mt-8 list-disc marker:text-lime-300 ml-5 space-y-3 mb-4 lg:mb-0">
-                    {e.points.map((point, index) => (
-                      <li
-                        key={`experience-point-${index}`}
-                        className="text-indigo-200 text-sm pl-1 tracking-wider leading-relaxed font-mulish">
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </VerticalTimelineElement>
-              );
-            })}
-          </VerticalTimeline>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-8">
+          {experiences.map(e => (
+            <div className="text-gray-50 rounded-md overflow-hidden bg-slate-900">
+              <div className="space-y-1 p-4">
+                <p className="text-xl font-bold text-slate-100">{e.title}</p>
+                <p className="text-slate-400">{e.company_name}</p>
+              </div>
+              <ul className="space-y-4 p-4">
+                {e.points.map(point => (
+                  <li className="text-sm md:text-base text-slate-300 font-mulish leading-relaxed">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <div className="p-4">
+                <span className="inline-block bg-slate-800 rounded-full px-3 py-1 text-sm font-mulish font-semibold text-slate-200 mr-2 mb-2">
+                  #photography
+                </span>
+                <span className="inline-block bg-slate-800 rounded-full px-3 py-1 text-sm font-mulish font-semibold text-slate-200 mr-2 mb-2">
+                  #travel
+                </span>
+                <span className="inline-block bg-slate-800 rounded-full px-3 py-1 text-sm font-mulish font-semibold text-slate-200 mr-2 mb-2">
+                  #winter
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default SectionWrapper(Experience, "experience");
+export default Experience;

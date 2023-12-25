@@ -108,7 +108,7 @@ export default function Home() {
       <Technologies />
       <Experience />
       <Projects />
-      {/* <Contact /> */}
+      <Contact />
     </div>
   );
 }

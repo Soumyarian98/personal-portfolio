@@ -54,10 +54,7 @@ const Ball = ({ img }: { img: string }) => {
 
 const BallCanvas = ({ url }: { url: string }) => {
   return (
-    <Canvas
-      frameloop="always"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}>
+    <Canvas frameloop="always" dpr={1} gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
         <Ball img={url} />
       </Suspense>
@@ -66,37 +63,31 @@ const BallCanvas = ({ url }: { url: string }) => {
 };
 
 const Technologies = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
   return (
-    <div className="relative min-h-screen" ref={ref}>
+    <div className="relative min-h-screen">
       <div className="container py-[60px] relative z-10">
-        <motion.div
-          variants={textVariant(0.5)}
-          className="space-y-2 text-center">
+        <div className="space-y-2 text-center">
           <p className="text-indigo-200">Tools I use in my day to day work</p>
           <h2 className="text-4xl lg:text-6xl uppercase font-extrabold text-lime-400">
             Technologies
           </h2>
-        </motion.div>
-        {isInView && (
-          <div className="flex gap-4 mt-8 flex-wrap justify-center items-center">
-            {technologies.map(t => {
-              return (
-                <div
-                  key={t.name}
-                  className="relative w-[100px] lg:w-[200px] h-[100px] lg:h-[200px]">
-                  <Suspense fallback={<CanvasLoader />}>
-                    <BallCanvas url={t.icon} />
-                  </Suspense>
-                </div>
-              );
-            })}
-          </div>
-        )}
+        </div>
+        <div className="flex gap-4 mt-8 flex-wrap justify-center items-center">
+          {technologies.map(t => {
+            return (
+              <div
+                key={t.name}
+                className="relative w-[100px] lg:w-[200px] h-[100px] lg:h-[200px]">
+                <Suspense fallback={<CanvasLoader />}>
+                  <BallCanvas url={t.icon} />
+                </Suspense>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
-export default SectionWrapper(Technologies, "technologies");
+export default Technologies;
